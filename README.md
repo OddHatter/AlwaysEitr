@@ -39,3 +39,7 @@ Vanilla has two limits: a cast that finds the staff's maximum of its creature ne
 3. Set the author to `Oddhatter`.
 
 The mod needs BepInExPack_Valheim.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
