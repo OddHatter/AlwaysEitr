@@ -1,0 +1,9 @@
+{
+  "name": "AlwaysEitr",
+  "version_number": "1.1.1",
+  "website_url": "",
+  "description": "Always-on eitr pool without eating eitr food, for staffs, spells and summons. Eitr food stacks on top of the pool. Pool size and regen speed configurable. Optional summon limit per summoning staff. Live config reload.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2360"
+  ]
+}
