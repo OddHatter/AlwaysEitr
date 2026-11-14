@@ -1,5 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Optional, git-ignored: your own ValheimDir / ProfileDir. -->
+  <Import Project="AlwaysEitr.local.props" Condition="Exists('AlwaysEitr.local.props')" />
+
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>AlwaysEitr</AssemblyName>
@@ -11,8 +14,12 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Keep the build machine's folders out of the shipped DLL's embedded debug info. -->
+    <PathMap>$(MSBuildProjectDirectory)=/_/,$(NuGetPackageRoot)=/_nuget/</PathMap>
+    <!-- The SDK's built-in SourceLink writes the local repo folder into the DLL; PathMap does not cover it. -->
+    <EnableSourceLink>false</EnableSourceLink>
 
-    <!-- Override on the command line: dotnet build -p:ValheimDir=... -p:ProfileDir=... -->
+    <!-- Defaults; override in AlwaysEitr.local.props or on the command line (-p:ValheimDir=... -p:ProfileDir=...). -->
     <ValheimDir Condition="'$(ValheimDir)' == ''">/mnt/c/Program Files (x86)/Steam/steamapps/common/Valheim</ValheimDir>
     <ProfileDir Condition="'$(ProfileDir)' == ''">$(APPDATA)/r2modmanPlus-local/Valheim/profiles/Default</ProfileDir>
     <ManagedDir>$(ValheimDir)/valheim_Data/Managed</ManagedDir>

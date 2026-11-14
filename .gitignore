@@ -4,3 +4,4 @@ dist/
 tasks/
 *.user
 .vs/
+AlwaysEitr.local.props
